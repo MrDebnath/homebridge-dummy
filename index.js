@@ -19,6 +19,13 @@ function DummySwitch(log, config) {
   this.resettable = config.resettable;
   this.timer = null;
   this._service = new Service.Switch(this.name);
+	
+  this.informationService = new Service.AccessoryInformation();
+  this.informationService
+    .setCharacteristic(Characteristic.Manufacturer, config.manufacturer ? config.manufacturer : 'Homebridge')
+    .setCharacteristic(Characteristic.Model, config.model ? config.model : 'DummySwitch')
+    .setCharacteristic(Characteristic.FirmwareRevision, config.firmwareRevision)
+    .setCharacteristic(Characteristic.SerialNumber, config.serialNumber);
   
   this.cacheDirectory = HomebridgeAPI.user.persistPath();
   this.storage = require('node-persist');
