@@ -1,3 +1,4 @@
+# "Accessory Info introduced"
 
 # "Dummy Switches" Plugin
 
